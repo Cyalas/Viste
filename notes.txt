@@ -1,0 +1,16 @@
+> Firebase
+> WhatSaPP appli
+> Tests after chaque process
+
+
+
+> Utilisateur simple connecté / non connecté > quand connecté: peut ajouter demande Covoit, Coloc etc + 
+	paramètre d'utilisateur + création de groupe + status utilisateurs / modérateurs / présidents groupes
+> Liaison à Firebase / Firestore + échange de msgs quand envoi d'intérêt + notifications + Nous contacter / Mdp Oublié
+
+> Filtre & recherche par date ds Covoit / par ville  Colocs / par Grp ds Groupes
+
+
+Rappels:
+* Au bout de 4 mois de désactivité, le groupe est automatiquement supprimé
+* Liste_Orgs_Publiques
