@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "561832976673",
+    "project_id": "viste-467ef",
+    "storage_bucket": "viste-467ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561832976673:android:0c8c36a7a3e4835ff19e60",
+        "android_client_info": {
+          "package_name": "com.yass.viste"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "561832976673-pag9rucr7qo2d7rk3vq8q0jcl1h13i58.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmsFSRM9eci3I6XKSnpM-GJyF-tXtRF2c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "561832976673-pag9rucr7qo2d7rk3vq8q0jcl1h13i58.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

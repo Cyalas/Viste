@@ -27,7 +27,8 @@ class _SignInPageState extends State<SignInPage> {
                 width: ScreenSize.width,
                 height: ScreenSize.height*.3,
                 decoration: BoxDecoration(
-                  color: primaryColor,
+                  // color: primaryColor,
+                  gradient: LinearG,
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(36),
                     bottomRight: Radius.circular(36)
@@ -77,7 +78,7 @@ class _SignInPageState extends State<SignInPage> {
                       children: [
                         IconButton(
                           icon: Icon(Icons.arrow_forward_ios),
-                          color: primaryColor,
+                          color: Colors.blueGrey[900],
                           iconSize: 45,
                            onPressed: (){}
                         ),
@@ -95,10 +96,8 @@ class _SignInPageState extends State<SignInPage> {
                             onPressed: (){}
                         ),
                         RaisedButton(
-                          // shape: RoundedRectangleBorder(
-                          //   borderRadius: BorderRadius.circular(20.0)
-                          // ),
                             elevation: .5,
+                            color: Colors.blueGrey[900],
                             child: Text(
                               'Inscription',
                               style: textTheme.headline3,

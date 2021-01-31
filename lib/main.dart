@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:viste/screens/Test_Page.dart';
 import 'screens/authentication/sign_in.dart';
 import 'screens/home.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'shared/constants.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  final bool _is_online = true;
+  final bool _is_online = false;
 
   // This widget is the root of your application.
   @override
@@ -27,8 +30,9 @@ class MyApp extends StatelessWidget {
               letterSpacing: 1.2
           ),
           headline2: TextStyle(
-            color: primaryColor,
-            fontSize: 17.0,
+            color: secondaryColor,
+            fontSize: 16.0,
+            fontWeight: FontWeight.bold
           ),
           headline3: TextStyle(
             color: thirdColor,

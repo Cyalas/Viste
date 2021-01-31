@@ -3,19 +3,25 @@ import 'package:viste/models/ColocModel.dart';
 import 'package:viste/models/GroupModels.dart';
 
 class UserModel{
-  final String Nom;
-  final String Prenom;
-  final String Sexe;
-  final String Ecole;
+  String Id;
+  String Nom;
+  String Prenom;
+  String Sexe;
+  String Ecole;
   String OrgTravail;
-  final DateTime DateNaissance ;
-  final String Filiere;
-  final DateTime Promo;
+  List<String> DateNaissance ; // [Année-Mois-Jour]
+  String Filiere;
+  int Promo;
   String Email;
+  String Password;
+  bool isAdmin;
+  bool isModerator;
+
+  // List<String> Covoits;
+  // List<String> Colocs;
+  // List<String> Groupes;
   List<CovoitModel> Covoits;
   List<ColocModel> Colocs;
   List<GroupeModel> Groupes;
 
-  UserModel({this.Nom, this.Prenom, this.Sexe, this.Ecole, this.OrgTravail, this.DateNaissance,
-    this.Filiere,this.Promo, this.Groupes, this.Email, this.Covoits, this.Colocs});
 }

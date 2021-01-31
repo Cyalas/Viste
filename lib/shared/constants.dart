@@ -4,15 +4,25 @@ import 'package:flutter/material.dart';
 Color primaryColor =Colors.blueGrey;
 Color secondaryColor = Colors.blueGrey[900];
 Color thirdColor = Colors.white;
+
+LinearGradient LinearG = LinearGradient(
+  colors: [
+    primaryColor, primaryColor, primaryColor, Color(0xff1F1F1F)
+  ],
+
+);
 // Color fourthColor = Colors.white60;
 
 List<String> Liste_Sexe = ['Homme','Femme'];
 List<String> Liste_Status = ['Offre','Demande'];
 List<int> Liste_Promo = [for(var yr=1960; yr<2023; yr+=1) yr];
 List<String> Liste_Villes = ['Rabat', 'Casablanca', 'Agadir', 'Meknès', 'Dakhla', 'Fès', 'Marrakech', 'Temara'];
+List<String> Liste_Mois = ['Janvier', 'Février', 'Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Novembre','Décembre'];
+List<int> Liste_Annees = [for(var yr=1920; yr<2020;yr+=1) yr];
+// Liste<String> Liste_Jours = [];
 
 // MENU
-List<String> Liste_Menu=['Créer un groupe','Paramètres', 'Nous contacter'];
+List<String> Liste_Menu=['Créer un groupe','Paramètres', 'Nous contacter','Déconnexion'];
 
 // ECOLES
 List <String> Liste_Ecoles = ['IAV Hassan II', 'ENAM'];
@@ -49,7 +59,7 @@ Map Icons_paths ={
 
 
 // ALERTES
-String Alerte_registration = "Votre inscription sera validée par votre promos."
+String Alerte_registration = "Votre inscription sera validée par votre promo  ."
     " Un mail de confirmation vous serait envoyé.";
 String Alerte_covoit_envoye = "Votre demande de Covoit a été envoyée!";
 String Alerte_coloc_envoye = "Votre demande de Coloc a été envoyée!";

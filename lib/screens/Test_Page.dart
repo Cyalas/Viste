@@ -54,20 +54,20 @@ List<MsgGroupeModel> msgGroupe = [MsgGroupeModel(
 List<GroupeModel> Group0 = [];
 
 
-UserModel Hamdi = UserModel(
-    Nom: Nom,
-    Prenom: Prenom,
-    Sexe: Sexe,
-    Ecole: Ecole,
-    DateNaissance: DateNaissance,
-    Filiere: Filiere,
-    Promo: Promo,
-    Groupes: Group0,
-    Email: Email,
-    Colocs: ColocList,
-    Covoits: CovoitList,
-    OrgTravail: OrgTravail
-);
+UserModel Hamdi = UserModel();
+//     Nom: Nom,
+//     Prenom: Prenom,
+//     Sexe: Sexe,
+//     Ecole: Ecole,
+//     DateNaissance: DateNaissance,
+//     Filiere: Filiere,
+//     Promo: Promo,
+//     Groupes: Group0,
+//     Email: Email,
+//     Colocs: ColocList,
+//     Covoits: CovoitList,
+//     OrgTravail: OrgTravail
+// );
 // IKRAM USER
 
 final String status2='Demande';
@@ -109,22 +109,40 @@ List<MsgGroupeModel> msgGroupe2 = [MsgGroupeModel(
   Content: 'REPORT DE GUENOUNI REPORT DE GUENOUNI REPORT DE GUENOUNI REPORT DE GUENOUNI REPORT DE GUENOUNI REPORT DE GUENOUNI',
   DatePubli: DatePubli2,
 ),];
+//
+UserModel Ikram = UserModel();
 
-UserModel Ikram = UserModel(
-    Nom: Nom2,
-    Prenom: Prenom2,
-    Sexe: Sexe2,
-    Ecole: Ecole2,
-    DateNaissance: DateNaissance2,
-    Filiere: Filiere2,
-    Promo: Promo2,
-    Groupes: Group0 ,
-    Email: Email2,
-    Colocs: ColocList2,
-    Covoits: CovoitList2,
-  OrgTravail: OrgTravail2
-);
+void IkramUpdate(){
+  Ikram.Sexe=Sexe2;
+  Ikram.Ecole = Ecole2;
+  Ikram.Colocs = ColocList2;
+  Ikram.Groupes = Group0;
+  Ikram.Covoits = CovoitList2;
+}
 
+void HamdiUpdate(){
+  Hamdi.Sexe=Sexe;
+  Hamdi.Ecole = Ecole;
+  Hamdi.Colocs = ColocList;
+  Hamdi.Groupes = Group0;
+  Hamdi.Covoits = CovoitList;
+}
+
+
+
+
+
+
+// Sexe: Sexe2,
+// Ecole: Ecole2,
+// DateNaissance: DateNaissance2,
+// Filiere: Filiere2,
+// Promo: Promo2,
+// Groupes: Group0 ,
+// Email: Email2,
+// Colocs: ColocList2,
+// Covoits: CovoitList2,
+// OrgTravail: OrgTravail2
 
 
 GroupeModel AMEIGR= GroupeModel(

@@ -1,8 +1,17 @@
-> Firebase
-> WhatSaPP appli
-> Tests after chaque process
 
-
+* montrer erreur si email existe déjà
+* remplacer covoitwidget etc par WIDGET
+* try the super  key key to solve modifying data in widget (https://flutter.dev/docs/cookbook/navigation/passing-data)
+* validators : nom & prénom : pas de nbrs (chercher internet?)
+* keep password likethat?
+* ajouter repeter mdp
+* keyboardType: TextInputType.emailAddress,
+* debugShowCheckedModeBanner: false,
+* Color(0xff1F1F1F), Color(0xff145C9E)
+* LinearGradient
+* Navette + nb pub / pers + biograpgies/facts
+* qd demande: pas de heure
+* Covoit/Coloc/String attributs of UserModel are String List for the moment. Don't forget to transform them to models
 
 > Utilisateur simple connecté / non connecté > quand connecté: peut ajouter demande Covoit, Coloc etc + 
 	paramètre d'utilisateur + création de groupe + status utilisateurs / modérateurs / présidents groupes
@@ -14,3 +23,7 @@
 Rappels:
 * Au bout de 4 mois de désactivité, le groupe est automatiquement supprimé
 * Liste_Orgs_Publiques
+
+NOTES :
+* Providers are a way to create a bridge between the widget tree and data classes
+* we're setting a changenotifier provider / a futur provider for the Auth / a streaprovider for wax class

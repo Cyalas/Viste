@@ -7,6 +7,7 @@ import 'package:viste/screens/home_screens/dialogs_screens/AddGroupeDialog.dart'
 import 'package:viste/shared/constants.dart';
 import 'package:viste/shared/list_widgets1.dart';
 import 'home_screens/dialogs_screens/FirstDialog.dart';
+import 'package:viste/screens/Test_Page.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -22,6 +23,7 @@ class _HomePageState extends State<HomePage> {
     MenuModel(text: Liste_Menu[0],Icone: Icons.group_add_outlined),
     MenuModel(text: Liste_Menu[1],Icone: Icons.settings),
     MenuModel(text: Liste_Menu[2],Icone: Icons.contact_support),
+    MenuModel(text: Liste_Menu[3],Icone: Icons.exit_to_app),
   ];
 
   _buildSearch() {
@@ -74,6 +76,13 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
+  void initState() {
+    IkramUpdate();
+    HamdiUpdate();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final _mainKey = GlobalKey<ScaffoldState>();
     TextTheme textTheme = Theme.of(context).textTheme;
@@ -104,7 +113,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ) :
             _buildSearch(),
-            backgroundColor: _isSearch==false? primaryColor: primaryColor,
+            backgroundColor: primaryColor,
             elevation: 0.0,
             bottom: TabBar(
               labelStyle: textTheme.headline2,

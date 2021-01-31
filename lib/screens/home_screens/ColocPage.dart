@@ -10,6 +10,7 @@ class ColocPage extends StatefulWidget {
 
 class _ColocPageState extends State<ColocPage> {
   @override
+
   Widget build(BuildContext context) {
     return Scaffold(
         body: Padding(
@@ -26,6 +27,8 @@ class _ColocPageState extends State<ColocPage> {
     );
   }
 }
+
+
 
 
 

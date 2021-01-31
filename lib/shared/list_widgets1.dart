@@ -4,8 +4,9 @@ import 'package:viste/shared/constants.dart';
 import 'package:viste/models/UserModel.dart';
 
 // LIST WIDGETS :
-// myTextInput
-// myDropdownInput
+// myTextInputWidget
+// myTextInput   -- to delete
+// myDropdownInput   -- to delete
 // FromTo
 // CovoitWidget
 // MyPt
@@ -16,8 +17,67 @@ import 'package:viste/models/UserModel.dart';
 // IconTex
 // LastRowDialog
 
+// validators
+dynamic PasswordValidator(String val){
+  return val.length>6 ? null : "Mot de passe > 6";
+}
 
-// --- Text Forms
+dynamic EmailValidator(String val){
+  return RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(val) ?
+  null : "Adresse Email invalide.";
+}
+
+dynamic NomValidator(String val){
+  return  val.length>2 ? null : "Nom invalide";
+}
+
+// --- myTextInputWidget
+Widget myTextInputWidget(BuildContext context, TextEditingController TEC, String text, TextStyle style, Function validatorFunction){
+  return Flexible(
+    child: TextFormField(
+      controller: TEC,
+      validator: (val){
+        validatorFunction(val);
+      },
+      autocorrect: false,
+      decoration: InputDecoration(
+        labelText: text,
+        labelStyle: style,
+      ),
+      style: style,
+    ),
+  );
+}
+
+
+Widget myDropdownWidget(BuildContext context, String text,TextStyle style, dynamic value, List<dynamic> ListValues, Function setSt ){
+  final VoidCallback myVoidCallback = () {};
+  return Flexible(
+    child: DropdownButtonFormField<String>(
+      decoration: InputDecoration(
+        labelText: text,
+        labelStyle: style,
+      ),
+      value: value,
+      items: ListValues.map((value) {
+        return DropdownMenuItem<String>(
+          child: Text(
+            value,
+            style: style,
+          ),
+          value: value,
+        );
+      }).toList(),
+      onChanged: (val){
+        myVoidCallback();
+        setSt(val,value);
+      }
+    ),
+  );
+}
+
+
+// --- Text Input
 class myTextInput extends StatefulWidget {
   final String text;
   final TextStyle style;
@@ -47,44 +107,40 @@ class _myTextInputState extends State<myTextInput> {
 
 // --- DropdownButtonFormField
 class myDropdownInput extends StatefulWidget {
-  final String text;
-  final TextStyle style;
-  final dynamic value;
-  final List<dynamic> ListValues;
+  String text;
+  TextStyle style;
+  dynamic value;
+  List<dynamic> ListValues;
 
   myDropdownInput({this.text,this.style,this.value,this.ListValues});
 
-  _myDropdownInputState createState() => _myDropdownInputState(this.text,this.style,this.value, this.ListValues);
+  _myDropdownInputState createState() => _myDropdownInputState();
 }
 
 class _myDropdownInputState extends State<myDropdownInput> {
-  _myDropdownInputState(this.text,this.style,this.value, this.ListValues);
-  final String text;
-  final TextStyle style;
-  final List<dynamic> ListValues;
-  dynamic value;
 
   @override
   Widget build(BuildContext context) {
     return Flexible(
       child: DropdownButtonFormField<String>(
         decoration: InputDecoration(
-          labelText: this.text,
-          labelStyle: this.style,
+          labelText: widget.text,
+          labelStyle: widget.style,
         ),
-        value: this.value,
-        items: ListValues.map((value) {
+        value: widget.value,
+        items: widget.ListValues.map((value) {
           return DropdownMenuItem<String>(
             child: Text(
               value,
-              style: this.style,
+              style: widget.style,
             ),
             value: value,
           );
         }).toList(),
         onChanged: (newVal) {
           setState(() {
-            this.value = newVal;
+            widget.value = newVal;
+            print('IN LIST ${widget.value}');
           });
         },
       ),
