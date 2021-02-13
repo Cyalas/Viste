@@ -17,10 +17,10 @@ class _GroupesPageState extends State<GroupesPage> {
           padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
           child: ListView(
             children: [
-              MsgGroupeWidget(Ikram),
-              MsgGroupeWidget(Hamdi),
-              MsgGroupeWidget(Ikram),
-              MsgGroupeWidget(Hamdi),
+              MsgGroupeWidget(context, Ikram),
+              MsgGroupeWidget(context, Hamdi),
+              MsgGroupeWidget(context, Ikram),
+              MsgGroupeWidget(context, Hamdi),
             ],
           ),
         )

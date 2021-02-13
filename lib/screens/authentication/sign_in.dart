@@ -80,7 +80,9 @@ class _SignInPageState extends State<SignInPage> {
                           icon: Icon(Icons.arrow_forward_ios),
                           color: Colors.blueGrey[900],
                           iconSize: 45,
-                           onPressed: (){}
+                           onPressed: (){
+                           // TODO: CONNEXION >>
+                           }
                         ),
                       ],
                     ),
@@ -93,7 +95,9 @@ class _SignInPageState extends State<SignInPage> {
                               'Mot de passe oublié',
                               style: textTheme.headline2,
                             ),
-                            onPressed: (){}
+                            onPressed: (){
+                            //  TODO: MOT DE PASSE OUBLIE
+                            }
                         ),
                         RaisedButton(
                             elevation: .5,

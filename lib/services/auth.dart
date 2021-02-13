@@ -21,7 +21,7 @@ class AuthMethods {
             return null;
           }
     } catch(e){
-      print(e.toString());
+      print('HERE ${e.toString()}');
     }
   }
 

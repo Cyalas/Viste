@@ -12,7 +12,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  final bool _is_online = false;
+  final bool _is_online = true;
 
   // This widget is the root of your application.
   @override

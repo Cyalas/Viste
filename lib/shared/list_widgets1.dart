@@ -8,11 +8,11 @@ import 'package:viste/models/UserModel.dart';
 // myTextInput   -- to delete
 // myDropdownInput   -- to delete
 // FromTo
-// CovoitWidget
+// MyCovoitWidget
 // MyPt
-// PtTex
-// ColocData
-// ColocWidget
+// PtTexWidget
+// ColocDataWidget
+// MyColocWidget
 // MsgGroupeWidget
 // IconTex
 // LastRowDialog
@@ -258,61 +258,47 @@ class _FromToState extends State<FromTo> {
   }
 }
 
-// ---- Covoit
-class CovoitWidget extends StatefulWidget {
-  final UserModel Sender;
-  CovoitWidget(this.Sender);
-
-  @override
-  _CovoitWidgetState createState() => _CovoitWidgetState(this.Sender);
-}
-
-class _CovoitWidgetState extends State<CovoitWidget> {
-  _CovoitWidgetState(this.Sender);
-  final UserModel Sender;
-
-  @override
-  Widget build(BuildContext context) {
-    TextTheme textTheme = Theme.of(context).textTheme;
-    return Card(
-      margin: EdgeInsets.all(5),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Image.asset(Icons_paths[Sender.Ecole],scale: 3),
-                Text(
-                  Sender.Covoits[0].status + ' le ${Sender.Covoits[0].Date}',
-                  style: textTheme.headline5,
-                ),
-                Text(Sender.Covoits[0].DatePubli, style: textTheme.headline6)
-                // Container(width: 15)
-              ],
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: EdgeInsets.fromLTRB(3, 2, 1, 10),
-                  child: Image.asset(Icons_paths[Sender.Sexe],scale: 10),
-                ),
-                SizedBox(width: 5),
-                FromTo(Time1: Sender.Covoits[0].FromTime,Ville1: Sender.Covoits[0].FromCity,
-                    Time2: Sender.Covoits[0].ToTime ,Ville2: Sender.Covoits[0].ToCity,
-                Date: 'Le ${Sender.Covoits[0].Date}'),
-                IconButton(onPressed: (){}, icon: Icon(Icons.send_sharp), color: secondaryColor, iconSize: 30,)
-              ],
-            ),
-          ],
-        ),
+// ---- MyCovoitWidget
+Widget MyCovoitWidget(BuildContext context, UserModel Sender){
+  TextTheme textTheme = Theme.of(context).textTheme;
+  return Card(
+    margin: EdgeInsets.all(5),
+    child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Image.asset(Icons_paths[Sender.Ecole],scale: 3),
+              Text(
+                Sender.Covoits[0].status + ' le ${Sender.Covoits[0].Date}',
+                style: textTheme.headline5,
+              ),
+              Text(Sender.Covoits[0].DatePubli, style: textTheme.headline6)
+              // Container(width: 15)
+            ],
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: EdgeInsets.fromLTRB(3, 2, 1, 10),
+                child: Image.asset(Icons_paths[Sender.Sexe],scale: 10),
+              ),
+              SizedBox(width: 5),
+              FromTo(Time1: Sender.Covoits[0].FromTime,Ville1: Sender.Covoits[0].FromCity,
+                  Time2: Sender.Covoits[0].ToTime ,Ville2: Sender.Covoits[0].ToCity,
+                  Date: 'Le ${Sender.Covoits[0].Date}'),
+              IconButton(onPressed: (){}, icon: Icon(Icons.send_sharp), color: secondaryColor, iconSize: 30,)
+            ],
+          ),
+        ],
       ),
-    );
-  }
+    ),
+  );
 }
 
 class MyPt extends StatelessWidget {
@@ -330,36 +316,32 @@ class MyPt extends StatelessWidget {
   }
 }
 
-// --- PtTex
-class PtTex extends StatelessWidget {
-  final String text;
-  PtTex(this.text);
+// --- PtTexWidget
 
-  @override
-  Widget build(BuildContext context) {
-    TextTheme textTheme = Theme.of(context).textTheme;
-    double txt_size = 200;
-    return Row(
-      children: [
-        SizedBox(width: 3),
-        MyPt(),
-        SizedBox(width: 3),
-        LimitedBox(
-          maxWidth: txt_size,
-          child: Container(
-              // width: txt_size,
-              child: Text(
-                this.text,
-                style: textTheme.headline4,
-              )
-          ),
+Widget PtTexWidget(BuildContext context, String text){
+  TextTheme textTheme = Theme.of(context).textTheme;
+  double txt_size = 200;
+
+  return Row(
+    children: [
+      SizedBox(width: 3),
+      MyPt(),
+      SizedBox(width: 3),
+      LimitedBox(
+        maxWidth: txt_size,
+        child: Container(
+          // width: txt_size,
+            child: Text(
+              text,
+              style: textTheme.headline4,
+            )
         ),
-      ],
-    );
-  }
-}
+      ),
+    ],
+  );
 
-// --- Coloc Data
+}
+// ColocData
 class ColocData extends StatefulWidget {
   String ville;
   String quartier;
@@ -384,9 +366,9 @@ class _ColocDataState extends State<ColocData> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            PtTex('Location à :  ${this.ville}'),
-            PtTex('Proche de  : ${this.quartier}'),
-            PtTex('Budget       : ${this.budget}'),
+          PtTexWidget(context, 'Location à :  $ville'),
+          PtTexWidget(context, 'Proche de  : $quartier'),
+          PtTexWidget(context, 'Budget       : $budget'),
           ],
         ),
       ),
@@ -394,104 +376,86 @@ class _ColocDataState extends State<ColocData> {
   }
 }
 
-// --- Coloc Widget
-class ColocWidget extends StatefulWidget {
-  final UserModel Sender;
-  ColocWidget(this.Sender);
-  @override
-  _ColocWidgetState createState() => _ColocWidgetState(this.Sender);
-}
-
-class _ColocWidgetState extends State<ColocWidget> {
-  _ColocWidgetState(this.Sender);
-  final UserModel Sender;
-
-  @override
-  Widget build(BuildContext context) {
-    TextTheme textTheme = Theme.of(context).textTheme;
-    return Card(
-      margin: EdgeInsets.all(5),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Image.asset(Icons_paths[Sender.Ecole], scale: 3),
-                Text(
-                  Sender.Colocs[0].status,
-                  style: textTheme.headline5,
-                ),
-                Text(Sender.Colocs[0].DatePubli, style: textTheme.headline6)
-              ],
-            ),
-            SizedBox(height: 5),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Padding(
-                  padding: EdgeInsets.fromLTRB(3, 2, 1, 10),
-                  child: Image.asset(Icons_paths[Sender.Sexe],scale: 10),
-                ),
-                SizedBox(width: 5),
-                ColocData(ville: Sender.Colocs[0].ville,quartier: Sender.Colocs[0].quartier, budget: Sender.Colocs[0].budget),
-                IconButton(onPressed: (){}, icon: Icon(Icons.send_sharp), color: secondaryColor, iconSize: 30,)
-              ],
-            )
-          ],
-        ),
+// --- MyColocWidget
+Widget MyColocWidget(BuildContext context, UserModel Sender){
+  TextTheme textTheme = Theme.of(context).textTheme;
+  return Card(
+    margin: EdgeInsets.all(5),
+    child: Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Image.asset(Icons_paths[Sender.Ecole], scale: 3),
+              Text(
+                Sender.Colocs[0].status,
+                style: textTheme.headline5,
+              ),
+              Text(Sender.Colocs[0].DatePubli, style: textTheme.headline6)
+            ],
+          ),
+          SizedBox(height: 5),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Padding(
+                padding: EdgeInsets.fromLTRB(3, 2, 1, 10),
+                child: Image.asset(Icons_paths[Sender.Sexe],scale: 10),
+              ),
+              SizedBox(width: 5),
+              // ColocDataWidget(context, Sender.Colocs[0].ville,Sender.Colocs[0].quartier, Sender.Colocs[0].budget),
+              ColocData(ville: Sender.Colocs[0].ville, quartier: Sender.Colocs[0].quartier, budget: Sender.Colocs[0].budget,),
+              IconButton(onPressed: (){}, icon: Icon(Icons.send_sharp), color: secondaryColor, iconSize: 30,)
+            ],
+          )
+        ],
       ),
-    );;
-  }
+    ),
+  );
 }
 
 
 // --- MsgGroupeWidget
-class MsgGroupeWidget extends StatelessWidget {
-  final UserModel Sender;
+Widget MsgGroupeWidget(BuildContext context, UserModel Sender){
+  TextTheme textTheme = Theme.of(context).textTheme;
+  MsgGroupeModel msg = Sender.Groupes[0].Content[0];
+  return Card(
+    margin: EdgeInsets.all(7),
+    child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(child: Text(Sender.Groupes[0].Nom, style: textTheme.headline5, textAlign: TextAlign.center)),
+                Text(msg.DatePubli, style: textTheme.headline6)
+              ],
+            ),
+            // Center(child: Text(Sender.Groupes[0].Nom, style: textTheme.headline5,)),
+            Row(children: [
+              Text(
+                  'Objet: ${msg.Objet}',
+                  style: TextStyle(
+                      color: secondaryColor,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.underline
+                  )
+              )
 
-  MsgGroupeWidget(this.Sender);
-  @override
-  Widget build(BuildContext context) {
-    TextTheme textTheme = Theme.of(context).textTheme;
-    MsgGroupeModel msg = this.Sender.Groupes[0].Content[0];
-    return Card(
-      margin: EdgeInsets.all(7),
-      child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Expanded(child: Text(Sender.Groupes[0].Nom, style: textTheme.headline5, textAlign: TextAlign.center)),
-                  Text(msg.DatePubli, style: textTheme.headline6)
-                ],
-              ),
-              // Center(child: Text(Sender.Groupes[0].Nom, style: textTheme.headline5,)),
-              Row(children: [
-                Text(
-                    'Objet: ${msg.Objet}',
-                    style: TextStyle(
-                        color: secondaryColor,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.underline
-                    )
-                )
-
-              ]),
-              SizedBox(height: 10),
-              Container(
-                  alignment: Alignment.centerLeft,
-                  child: Text(msg.Content)),
-            ],
-          )
-      ),
-    );
-  }
+            ]),
+            SizedBox(height: 10),
+            Container(
+                alignment: Alignment.centerLeft,
+                child: Text(msg.Content)),
+          ],
+        )
+    ),
+  );
 }
 
 // --- IconTex
@@ -527,61 +491,53 @@ class MenuModel {
 
 
 // --- Last row Dialog
-class LastRowDialog extends StatelessWidget {
-  GlobalKey<ScaffoldState> Scaffoldkey;
-  IconData Icone;
-  String alert;
-  LastRowDialog({this.Icone, this.alert, this.Scaffoldkey});
-
-  @override
-  Widget build(BuildContext context) {
-    TextTheme textTheme0 = Theme.of(context).textTheme;
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        FlatButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          child: Text(
-            'Annuler',
-            style: TextStyle(
-                decoration: TextDecoration.underline,
-                fontWeight: FontWeight.bold,
-                fontSize: 17
-            ),
+Widget LastRowDialog(BuildContext context, GlobalKey<ScaffoldState> Scaffoldkey, IconData Icone, String alert){
+  TextTheme textTheme = Theme.of(context).textTheme;
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      FlatButton(
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+        child: Text(
+          'Annuler',
+          style: TextStyle(
+              decoration: TextDecoration.underline,
+              fontWeight: FontWeight.bold,
+              fontSize: 17
           ),
         ),
-        IconButton(
-          onPressed: () {
-            this.Scaffoldkey.currentState.showSnackBar(
-                SnackBar(
-                  content: Row(
-                    children: [
-                      Icon(
-                        Icons.info,
-                        size: 30,
+      ),
+      IconButton(
+        onPressed: () {
+          Scaffoldkey.currentState.showSnackBar(
+              SnackBar(
+                content: Row(
+                  children: [
+                    Icon(
+                      Icons.info,
+                      size: 30,
+                    ),
+                    SizedBox(width: 10),
+                    Flexible(
+                      child: Text(
+                          alert,
+                          style: textTheme.headline3
                       ),
-                      SizedBox(width: 10),
-                      Flexible(
-                        child: Text(
-                            this.alert,
-                            style: textTheme0.headline3
-                        ),
-                      ),
-                    ],
-                  ),
-                  duration: Duration(seconds: 4),
-                )
-            );
-            Navigator.of(context).pop();
-          },
-          icon: Icon(this.Icone),
-          color: secondaryColor,
-          iconSize: 30,
-        ),
-      ],
-    );
-  }
+                    ),
+                  ],
+                ),
+                duration: Duration(seconds: 4),
+              )
+          );
+          Navigator.of(context).pop();
+        },
+        icon: Icon(Icone),
+        color: secondaryColor,
+        iconSize: 30,
+      ),
+    ],
+  );
 }
 

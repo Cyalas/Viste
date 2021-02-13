@@ -18,10 +18,10 @@ class _CovoitPageState extends State<CovoitPage> {
         padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
         child: ListView(
           children: [
-            CovoitWidget(Hamdi),
-            CovoitWidget(Ikram),
-            CovoitWidget(Hamdi),
-            CovoitWidget(Ikram),
+            MyCovoitWidget(context, Hamdi),
+            MyCovoitWidget(context, Ikram),
+            MyCovoitWidget(context, Hamdi),
+            MyCovoitWidget(context, Ikram),
           ],
         ),
       )

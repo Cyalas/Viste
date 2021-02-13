@@ -28,7 +28,6 @@ class _RegisterPage2State extends State<RegisterPage2> {
   UserModel UserComplete(UserModel UserToComplete){
 
     if (_formKey2.currentState.validate()){
-      print('validated');
       UserToComplete.Email = _EmailValue.text;
       UserToComplete.Password = _PasswordValue.text;
       authMethods.Register(UserToComplete).then((value) {
@@ -60,9 +59,6 @@ class _RegisterPage2State extends State<RegisterPage2> {
         });
       });
     }
-
-    print('not validated');
-    // return UserToComplete;
   }
   @override
   Widget build(BuildContext context) {

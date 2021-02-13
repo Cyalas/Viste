@@ -59,7 +59,7 @@ Map Icons_paths ={
 
 
 // ALERTES
-String Alerte_registration = "Votre inscription sera validée par votre promo  ."
+String Alerte_registration = "Votre inscription sera validée par votre promo."
     " Un mail de confirmation vous serait envoyé.";
 String Alerte_covoit_envoye = "Votre demande de Covoit a été envoyée!";
 String Alerte_coloc_envoye = "Votre demande de Coloc a été envoyée!";

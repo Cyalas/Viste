@@ -17,10 +17,10 @@ class _ColocPageState extends State<ColocPage> {
           padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
           child: ListView(
             children: [
-              ColocWidget(Ikram),
-              ColocWidget(Hamdi),
-              ColocWidget(Ikram),
-              ColocWidget(Hamdi),
+              MyColocWidget(context, Ikram),
+              MyColocWidget(context,Hamdi),
+              MyColocWidget(context,Ikram),
+              MyColocWidget(context,Hamdi),
             ],
           ),
         )

@@ -65,9 +65,10 @@ class _ColocDialogState extends State<ColocDialog> {
                 ),
                 SizedBox(height: 10),
                 LastRowDialog(
-                  Icone: Icons.send_sharp,
-                  alert: Alerte_coloc_envoye,
-                  Scaffoldkey: this.ScaffoldKey,
+                  context,
+                  this.ScaffoldKey,
+                  Icons.send_sharp,
+                  Alerte_coloc_envoye,
                 )
               ],
             ),

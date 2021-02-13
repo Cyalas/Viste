@@ -57,9 +57,10 @@ class _MsgDialogState extends State<MsgDialog> {
                   ),
               ),
               LastRowDialog(
-                Icone: Icons.send_sharp,
-                alert: Alerte_msg_envoye,
-                Scaffoldkey: this.ScaffoldKey,
+                context,
+                this.ScaffoldKey,
+                Icons.send_sharp,
+                Alerte_msg_envoye,
               )
             ],
           )

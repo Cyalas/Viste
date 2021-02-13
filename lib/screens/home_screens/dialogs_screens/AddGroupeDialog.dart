@@ -29,9 +29,10 @@ class _AddGroupeDialogState extends State<AddGroupeDialog> {
               myTextInput(text: 'Nom',style: textTheme),
               myTextInput(text: 'Gérants',style: textTheme),
               LastRowDialog(
-                Icone: Icons.add_circle_outline,
-                alert: Alerte_creation_groupe,
-                Scaffoldkey: this.ScaffoldKey,
+                context,
+                this.ScaffoldKey,
+                Icons.add_circle_outline,
+                Alerte_creation_groupe,
               )
             ],
           ),
